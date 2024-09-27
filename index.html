@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #div1{
+        border: 2px solid red;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .usersBox {
+      background-color: rgb(233, 255, 220);
+      border: 2px solid black;
+    }
+    .usersBox:hover{
+        font-size: 4vh;
+    }
+  </style>
+  <body>
+    <div id="div1"></div>
+    <div class="container"></div>
+
+    <script>
+      let arr = [
+        {
+          name: "Bhargavi",
+          image:"istockphoto-1353379172-1024x1024.jpg",
+          branch: "ECE",
+        },
+        {
+          name: "kowshi",
+          image:"istockphoto-1353379172-1024x1024.jpg",
+          branch: "CSE",
+        },
+        {
+          name: "udaya",
+          image:"istockphoto-1353379172-1024x1024.jpg",
+          branch: "BSC",
+        },
+        {
+          name: "Swathi",
+          image:"istockphoto-1353379172-1024x1024.jpg",
+          branch: "Inter",
+        },
+      ];
+      let button = document.createElement("button");
+      button.innerHTML = "add";
+      document.body.appendChild(button);
+      button.onclick = function () {
+        let div1 = document.getElementById("div1");
+        document.body.appendChild(div1)
+        const usersBox = document.createElement("div");
+        usersBox.className = "usersBox";
+        div1.appendChild(usersBox);
+        arrIndex = Math.floor(Math.random() * arr.length);
+        let img=document.createElement("img");
+        img.setAttribute("src",`${arr[arrIndex].image}`);
+        img.style.height="30vh";
+        img.style.width="20vh";
+        usersBox.appendChild(img);
+        let p = document.createElement("p");
+        p.innerHTML = `Name : ${arr[arrIndex].name}`;
+        usersBox.appendChild(p);
+        let p1 = document.createElement("p");
+        p1.innerHTML=`Branch : ${arr[arrIndex].branch}`;
+        p.appendChild(p1)
+        // let p1=document.createElement("p");
+        // p.innerHTML=`branch : ${arr[arrIndex].branch}`;
+        // img.appendChild(p1)
+
+      };
+    </script>
+  </body>
+</html>
